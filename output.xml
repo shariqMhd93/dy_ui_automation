@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20240212 18:51:15.514" rpa="false" schemaversion="4">
+<suite id="s1" name="Guest user checkout" source="C:\Users\shariqmohammed\PycharmProjects\dyProduction\Tests\Checkout\Guest_user_checkout.robot">
+<test id="s1-t1" name="Checkout with Credit Card/Visa and One item in bag - Suggested Address" line="80">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Open website</arg>
+<arg>Accept Cookies</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Open website" library="CommonWeb">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${run_on_BS}</arg>
+<arg>no</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.254" level="INFO">${run_on_BS} = no</msg>
+<status status="PASS" starttime="20240212 18:51:16.250" endtime="20240212 18:51:16.256"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${BRAND}</arg>
+<arg>DavidYurman</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.260" level="INFO">${BRAND} = DavidYurman</msg>
+<status status="PASS" starttime="20240212 18:51:16.256" endtime="20240212 18:51:16.260"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${device}</arg>
+<arg>chrome</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.264" level="INFO">${device} = chrome</msg>
+<status status="PASS" starttime="20240212 18:51:16.260" endtime="20240212 18:51:16.264"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${env}</arg>
+<arg>uat</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.268" level="INFO">${env} = uat</msg>
+<status status="PASS" starttime="20240212 18:51:16.265" endtime="20240212 18:51:16.268"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${URL}</arg>
+<arg>www.uat.davidyurman.com</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.272" level="INFO">${URL} = www.uat.davidyurman.com</msg>
+<status status="PASS" starttime="20240212 18:51:16.268" endtime="20240212 18:51:16.272"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${product_added}</arg>
+<arg>0</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.277" level="INFO">${product_added} = 0</msg>
+<status status="PASS" starttime="20240212 18:51:16.272" endtime="20240212 18:51:16.277"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${available}</arg>
+<arg>Not define</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.281" level="INFO">${available} = Not define</msg>
+<status status="PASS" starttime="20240212 18:51:16.278" endtime="20240212 18:51:16.282"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${shopLocale}</arg>
+<arg>US</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.286" level="INFO">${shopLocale} = US</msg>
+<status status="PASS" starttime="20240212 18:51:16.282" endtime="20240212 18:51:16.286"/>
+</kw>
+<kw name="Set Library Search Order" library="BuiltIn">
+<arg>SeleniumLibrary</arg>
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
+<status status="PASS" starttime="20240212 18:51:16.286" endtime="20240212 18:51:16.286"/>
+</kw>
+<if>
+<branch type="IF" condition="'${env}' in ['dev']">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${URL}</arg>
+<arg>${DEV_URL}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" starttime="20240212 18:51:16.287" endtime="20240212 18:51:16.287"/>
+</kw>
+<status status="NOT RUN" starttime="20240212 18:51:16.286" endtime="20240212 18:51:16.287"/>
+</branch>
+<branch type="ELSE IF" condition="'${env}' in ['uat']">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${URL}</arg>
+<arg>${UAT_URL}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:16.287" level="INFO">${URL} = https://dytest:TwistedCable23@uat.davidyurman.com/</msg>
+<status status="PASS" starttime="20240212 18:51:16.287" endtime="20240212 18:51:16.289"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:16.287" endtime="20240212 18:51:16.289"/>
+</branch>
+<branch type="ELSE IF" condition="'${env}' in ['prod']">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${URL}</arg>
+<arg>${PROD_URL}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" starttime="20240212 18:51:16.290" endtime="20240212 18:51:16.290"/>
+</kw>
+<status status="NOT RUN" starttime="20240212 18:51:16.289" endtime="20240212 18:51:16.290"/>
+</branch>
+<status status="PASS" starttime="20240212 18:51:16.286" endtime="20240212 18:51:16.290"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${run_on_BS}' == 'yes'</arg>
+<arg>Device setup for BS</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240212 18:51:16.291" endtime="20240212 18:51:16.292"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${run_on_BS}' == 'no'</arg>
+<arg>Open Browser</arg>
+<arg>${URL}</arg>
+<arg>${device}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${device}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240212 18:51:16.293" level="INFO">Opening browser 'chrome' to base url 'https://dytest:TwistedCable23@uat.davidyurman.com/'.</msg>
+<status status="PASS" starttime="20240212 18:51:16.292" endtime="20240212 18:51:44.391"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:16.292" endtime="20240212 18:51:44.392"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240212 18:51:44.392" endtime="20240212 18:51:44.530"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:16.250" endtime="20240212 18:51:44.530"/>
+</kw>
+<kw name="Accept Cookies" library="CommonWeb">
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Wait until page contains element</arg>
+<arg>${cookies_accept}</arg>
+<arg>timeout=20s</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${cookies_accept}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240212 18:51:44.535" endtime="20240212 18:51:44.652"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.532" endtime="20240212 18:51:44.653"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Wait until element is visible</arg>
+<arg>${cookies_accept}</arg>
+<arg>timeout=20s</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${cookies_accept}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:51:44.654" endtime="20240212 18:51:44.704"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.653" endtime="20240212 18:51:44.705"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>not ${cookies_closed}</arg>
+<arg>Run Keyword</arg>
+<arg>No Operation</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<arg>No Operation</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20240212 18:51:44.707" endtime="20240212 18:51:44.707"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.706" endtime="20240212 18:51:44.707"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.705" endtime="20240212 18:51:44.708"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${cookies_true}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${cookies_accept}</arg>
+<arg>timeout=3s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${cookies_accept}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:51:44.708" endtime="20240212 18:51:44.731"/>
+</kw>
+<msg timestamp="20240212 18:51:44.731" level="INFO">${cookies_true} = True</msg>
+<status status="PASS" starttime="20240212 18:51:44.708" endtime="20240212 18:51:44.731"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${cookies_true}</arg>
+<arg>CommonWeb.Check and Click</arg>
+<arg>${cookies_accept}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Check and Click" library="CommonWeb">
+<arg>${cookies_accept}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<arg>error=Element '${field}' is not displayed or unknow in DOM | *Locator :* ${locator}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240212 18:51:44.735" endtime="20240212 18:51:44.809"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=20s</arg>
+<arg>error=Element '${field}' is not visible | *Locator :* ${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:51:44.810" endtime="20240212 18:51:45.007"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${device}' != 'iPhone14'</arg>
+<arg>Scroll Element Into View</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20240212 18:51:45.008" endtime="20240212 18:51:45.312"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:45.007" endtime="20240212 18:51:45.313"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:51:45.314" level="INFO">Clicking element 'css:#consent_prompt_submit'.</msg>
+<status status="PASS" starttime="20240212 18:51:45.314" endtime="20240212 18:51:45.431"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.732" endtime="20240212 18:51:45.431"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.732" endtime="20240212 18:51:45.431"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cookies_closed}</arg>
+<arg>${True}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20240212 18:51:45.432" level="INFO">${cookies_closed} = True</msg>
+<status status="PASS" starttime="20240212 18:51:45.432" endtime="20240212 18:51:45.432"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:44.531" endtime="20240212 18:51:45.432"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:16.249" endtime="20240212 18:51:45.432"/>
+</kw>
+<kw name="Open PDP for product with id" library="PDP">
+<arg>BC0100MSS</arg>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}${id}.html</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240212 18:51:45.435" level="INFO">Opening url 'https://dytest:TwistedCable23@uat.davidyurman.com/BC0100MSS.html'</msg>
+<status status="PASS" starttime="20240212 18:51:45.435" endtime="20240212 18:51:51.575"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${pdp_product_name_l}</arg>
+<arg>15s</arg>
+<arg>error=Product Name is not visible</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:51:51.576" endtime="20240212 18:51:51.602"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:45.433" endtime="20240212 18:51:51.603"/>
+</kw>
+<kw name="Close the Get the First Look modal" library="CommonWeb">
+<if>
+<branch type="IF" condition="&quot;${GTFL_already_closed}&quot; == &quot;false&quot;">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${GTFL_true}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${gtfl}</arg>
+<arg>timeout=30s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${gtfl}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:51:51.604" endtime="20240212 18:51:59.395"/>
+</kw>
+<msg timestamp="20240212 18:51:59.396" level="INFO">${GTFL_true} = True</msg>
+<status status="PASS" starttime="20240212 18:51:51.604" endtime="20240212 18:51:59.396"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${GTFL_true}</arg>
+<arg>CommonWeb.Check and Click</arg>
+<arg>${gtfl_close}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Check and Click" library="CommonWeb">
+<arg>${gtfl_close}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<arg>error=Element '${field}' is not displayed or unknow in DOM | *Locator :* ${locator}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240212 18:51:59.398" endtime="20240212 18:51:59.422"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=20s</arg>
+<arg>error=Element '${field}' is not visible | *Locator :* ${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:51:59.423" endtime="20240212 18:51:59.446"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${device}' != 'iPhone14'</arg>
+<arg>Scroll Element Into View</arg>
+<arg>${locator}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20240212 18:51:59.448" endtime="20240212 18:51:59.742"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:59.447" endtime="20240212 18:51:59.742"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:51:59.745" level="INFO">Clicking element 'css:#emailDialogSignUp .icon'.</msg>
+<status status="PASS" starttime="20240212 18:51:59.742" endtime="20240212 18:51:59.825"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:59.397" endtime="20240212 18:51:59.827"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:59.396" endtime="20240212 18:51:59.827"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${GTFL_already_closed}</arg>
+<arg>true</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:51:59.830" level="INFO">${GTFL_already_closed} = true</msg>
+<status status="PASS" starttime="20240212 18:51:59.828" endtime="20240212 18:51:59.830"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:51.604" endtime="20240212 18:51:59.832"/>
+</branch>
+<status status="PASS" starttime="20240212 18:51:51.604" endtime="20240212 18:51:59.834"/>
+</if>
+<status status="PASS" starttime="20240212 18:51:51.603" endtime="20240212 18:51:59.835"/>
+</kw>
+<kw name="Select Size" library="PDP">
+<arg>M</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css:button[data-attr-value='${size}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:51:59.838" level="INFO">Clicking element 'css:button[data-attr-value='M']'.</msg>
+<status status="PASS" starttime="20240212 18:51:59.836" endtime="20240212 18:52:00.397"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${pdp_selected_size_l}</arg>
+<arg>10s</arg>
+<arg>error=Size is not visible</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240212 18:52:00.398" endtime="20240212 18:52:00.461"/>
+</kw>
+<status status="PASS" starttime="20240212 18:51:59.835" endtime="20240212 18:52:00.462"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240212 18:52:05.462" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240212 18:52:00.462" endtime="20240212 18:52:05.462"/>
+</kw>
+<kw name="Click Add To Cart Button from PDP" library="PDP">
+<kw name="Wait until underlay dissapears" library="PDP">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${pdp_add_to_cart_l}</arg>
+<arg>10s</arg>
+<arg>error=Add To Cart is not loaded</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240212 18:52:05.464" endtime="20240212 18:52:05.485"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${pdp_add_to_cart_l}</arg>
+<arg>10s</arg>
+<arg>error=Add To Cart is not visible</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:52:05.485" endtime="20240212 18:52:05.511"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>${pdp_underlay_l}</arg>
+<arg>10s</arg>
+<arg>error=Underlay is still visible</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20240212 18:52:05.511" endtime="20240212 18:52:05.528"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:05.463" endtime="20240212 18:52:05.528"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${pdp_add_to_cart_l}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:05.528" level="INFO">Clicking element 'css:.add-to-cart'.</msg>
+<status status="PASS" starttime="20240212 18:52:05.528" endtime="20240212 18:52:05.692"/>
+</kw>
+<kw name="Verify Minicart modal is displayed" library="PDP">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${pdp_minicart_l}</arg>
+<arg>10s</arg>
+<arg>error=Minicart is not visible</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240212 18:52:05.696" endtime="20240212 18:52:16.658"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:05.693" endtime="20240212 18:52:16.659"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:05.462" endtime="20240212 18:52:16.659"/>
+</kw>
+<kw name="Capture item details from mini cart page" library="Cart">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${no_of_items_mini_cart}</var>
+<arg>${no_of_items_locator_mini_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:16.716" level="INFO">${no_of_items_mini_cart} = 1 item</msg>
+<status status="PASS" starttime="20240212 18:52:16.660" endtime="20240212 18:52:16.716"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_primary_title_mini_cart}</var>
+<arg>${product_primary_title_locator_mini_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:17.084" level="INFO">${product_primary_title_mini_cart} = Box Chain Bracelet</msg>
+<status status="PASS" starttime="20240212 18:52:16.716" endtime="20240212 18:52:17.084"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_secondary_title_mini_cart}</var>
+<arg>${product_secondary_title_locator_mini_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:17.118" level="INFO">${product_secondary_title_mini_cart} = Sterling Silver, 4mm</msg>
+<status status="PASS" starttime="20240212 18:52:17.085" endtime="20240212 18:52:17.118"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_size_mini_cart}</var>
+<arg>${item_size_locator_mini_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:17.145" level="INFO">${item_size_mini_cart} = M</msg>
+<status status="PASS" starttime="20240212 18:52:17.119" endtime="20240212 18:52:17.145"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_price_mini_cart}</var>
+<arg>${item_price_locator_mini_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:17.183" level="INFO">${item_price_mini_cart} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:17.146" endtime="20240212 18:52:17.183"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${no_of_items_mini_cart}</arg>
+<arg>${no_of_items_mini_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:17.184" level="INFO">${no_of_items_mini_cart} = 1 item</msg>
+<status status="PASS" starttime="20240212 18:52:17.184" endtime="20240212 18:52:17.184"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${product_primary_title_mini_cart}</arg>
+<arg>${product_primary_title_mini_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:17.185" level="INFO">${product_primary_title_mini_cart} = Box Chain Bracelet</msg>
+<status status="PASS" starttime="20240212 18:52:17.184" endtime="20240212 18:52:17.185"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${product_secondary_title_mini_cart}</arg>
+<arg>${product_secondary_title_mini_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:17.185" level="INFO">${product_secondary_title_mini_cart} = Sterling Silver, 4mm</msg>
+<status status="PASS" starttime="20240212 18:52:17.185" endtime="20240212 18:52:17.185"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${item_size_mini_cart}</arg>
+<arg>${item_size_mini_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:17.186" level="INFO">${item_size_mini_cart} = M</msg>
+<status status="PASS" starttime="20240212 18:52:17.186" endtime="20240212 18:52:17.186"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${item_price_mini_cart}</arg>
+<arg>${item_price_mini_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:17.186" level="INFO">${250} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:17.186" endtime="20240212 18:52:17.187"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:16.660" endtime="20240212 18:52:17.187"/>
+</kw>
+<kw name="Click on View Bag button from Minicart modal" library="Cart">
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>${view_bag_button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20240212 18:52:17.188" endtime="20240212 18:52:17.503"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${view_bag_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:17.504" level="INFO">Clicking element 'xpath://a[@title='View Bag']'.</msg>
+<status status="PASS" starttime="20240212 18:52:17.503" endtime="20240212 18:52:24.032"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${cart_title}</arg>
+<arg>10s</arg>
+<arg>Cart page is not displayed</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240212 18:52:24.033" endtime="20240212 18:52:24.078"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:17.187" endtime="20240212 18:52:24.078"/>
+</kw>
+<kw name="Capture item details from cart page" library="Cart">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${no_of_items_cart}</var>
+<arg>${no_of_items_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.106" level="INFO">${no_of_items_cart} = (1 item)</msg>
+<status status="PASS" starttime="20240212 18:52:24.079" endtime="20240212 18:52:24.106"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_primary_title_cart}</var>
+<arg>${product_primary_title_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.154" level="INFO">${product_primary_title_cart} = Box Chain Bracelet</msg>
+<status status="PASS" starttime="20240212 18:52:24.107" endtime="20240212 18:52:24.155"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${product_secondary_title_cart}</var>
+<arg>${product_secondary_title_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.178" level="INFO">${product_secondary_title_cart} = Sterling Silver, 4mm</msg>
+<status status="PASS" starttime="20240212 18:52:24.155" endtime="20240212 18:52:24.178"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_size_cart}</var>
+<arg>${item_size_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.239" level="INFO">${item_size_cart} = M</msg>
+<status status="PASS" starttime="20240212 18:52:24.178" endtime="20240212 18:52:24.240"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_price_cart}</var>
+<arg>${item_price_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.367" level="INFO">${item_price_cart} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:24.240" endtime="20240212 18:52:24.367"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${no_of_items_cart}</arg>
+<arg>${no_of_items_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.369" level="INFO">${no_of_items_cart} = (1 item)</msg>
+<status status="PASS" starttime="20240212 18:52:24.369" endtime="20240212 18:52:24.369"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${product_primary_title_cart}</arg>
+<arg>${product_primary_title_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.370" level="INFO">${product_primary_title_cart} = Box Chain Bracelet</msg>
+<status status="PASS" starttime="20240212 18:52:24.370" endtime="20240212 18:52:24.370"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${product_secondary_title_cart}</arg>
+<arg>${product_secondary_title_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.371" level="INFO">${product_secondary_title_cart} = Sterling Silver, 4mm</msg>
+<status status="PASS" starttime="20240212 18:52:24.371" endtime="20240212 18:52:24.371"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${item_size_cart}</arg>
+<arg>${item_size_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.372" level="INFO">${item_size_cart} = M</msg>
+<status status="PASS" starttime="20240212 18:52:24.371" endtime="20240212 18:52:24.372"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${item_price_cart}</arg>
+<arg>${item_price_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.372" level="INFO">${250} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:24.372" endtime="20240212 18:52:24.372"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.078" endtime="20240212 18:52:24.372"/>
+</kw>
+<kw name="Capture payment summary from cart page" library="Cart">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${preShippingSubTotal_cart_1}</var>
+<arg>${pre_shipping_total_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.398" level="INFO">${preShippingSubTotal_cart_1} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:24.373" endtime="20240212 18:52:24.398"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${shipping_charge_cart}</var>
+<arg>${shipping_charge_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.414" level="INFO">${shipping_charge_cart} = Complimentary</msg>
+<status status="PASS" starttime="20240212 18:52:24.399" endtime="20240212 18:52:24.415"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${tax_total_cart}</var>
+<arg>${tax_total_locatorcart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.432" level="INFO">${tax_total_cart} = Calculated at checkout</msg>
+<status status="PASS" starttime="20240212 18:52:24.415" endtime="20240212 18:52:24.432"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${sub_total_cart}</var>
+<arg>${sub_total_locator_cart}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240212 18:52:24.453" level="INFO">${sub_total_cart} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:24.432" endtime="20240212 18:52:24.453"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${preShippingSubTotal_cart}</arg>
+<arg>${preShippingSubTotal_cart_1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.464" level="INFO">${preShippingSubTotal_cart} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:24.453" endtime="20240212 18:52:24.465"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${shipping_charge_cart}</arg>
+<arg>${shipping_charge_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.466" level="INFO">${shipping_charge_cart} = Complimentary</msg>
+<status status="PASS" starttime="20240212 18:52:24.465" endtime="20240212 18:52:24.466"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${tax_total_cart}</arg>
+<arg>${tax_total_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.467" level="INFO">${tax_total_cart} = Calculated at checkout</msg>
+<status status="PASS" starttime="20240212 18:52:24.467" endtime="20240212 18:52:24.467"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${sub_total_cart}</arg>
+<arg>${sub_total_cart}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240212 18:52:24.467" level="INFO">${250} = $250</msg>
+<status status="PASS" starttime="20240212 18:52:24.467" endtime="20240212 18:52:24.467"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.373" endtime="20240212 18:52:24.468"/>
+</kw>
+<kw name="Check items details are same in mini cart and cart" library="Cart">
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Contain Text</arg>
+<arg>${no_of_items_cart}</arg>
+<arg>${no_of_items_mini_cart}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Contain Text" library="CommonWeb">
+<arg>${no_of_items_cart}</arg>
+<arg>${no_of_items_mini_cart}</arg>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Contain</arg>
+<arg>${actual_text}</arg>
+<arg>${expected_text}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${actual_text}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20240212 18:52:24.473" endtime="20240212 18:52:24.474"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.472" endtime="20240212 18:52:24.474"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.470" endtime="20240212 18:52:24.475"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.469" endtime="20240212 18:52:24.475"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${product_primary_title_cart}</arg>
+<arg>${product_primary_title_mini_cart}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${product_primary_title_cart}</arg>
+<arg>${product_primary_title_mini_cart}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240212 18:52:24.476" endtime="20240212 18:52:24.477"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.475" endtime="20240212 18:52:24.478"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${product_secondary_title_cart}</arg>
+<arg>${product_secondary_title_mini_cart}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${product_secondary_title_cart}</arg>
+<arg>${product_secondary_title_mini_cart}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240212 18:52:24.479" endtime="20240212 18:52:24.480"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.478" endtime="20240212 18:52:24.481"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${item_size_cart}</arg>
+<arg>${item_size_mini_cart}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${item_size_cart}</arg>
+<arg>${item_size_mini_cart}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240212 18:52:24.482" endtime="20240212 18:52:24.484"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.481" endtime="20240212 18:52:24.484"/>
+</kw>
+<kw name="Run Keyword And Warn On Failure" library="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${item_price_cart}</arg>
+<arg>${item_price_mini_cart}</arg>
+<doc>Runs the specified keyword logs a warning if the keyword fails.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${item_price_cart}</arg>
+<arg>${item_price_mini_cart}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20240212 18:52:24.501" level="FAIL">Variable '${item_price_cart}' not found.</msg>
+<status status="FAIL" starttime="20240212 18:52:24.485" endtime="20240212 18:52:24.502"/>
+</kw>
+<msg timestamp="20240212 18:52:24.502" level="WARN">Executing keyword 'Should Be Equal As Strings' failed:
+Variable '${item_price_cart}' not found.</msg>
+<status status="PASS" starttime="20240212 18:52:24.485" endtime="20240212 18:52:24.502"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.468" endtime="20240212 18:52:24.502"/>
+</kw>
+<kw name="Run Keywords" library="BuiltIn" type="TEARDOWN">
+<arg>Set BS URL</arg>
+<arg>Close All Browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Set BS URL" library="CommonWeb">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${run_on_BS}' =='yes'</arg>
+<arg>Browserstack API - Get URL</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240212 18:52:24.503" endtime="20240212 18:52:24.504"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${run_on_BS}' =='yes'</arg>
+<arg>Set Test Message</arg>
+<arg>[${BS_URL}]</arg>
+<arg>append=True</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240212 18:52:24.504" endtime="20240212 18:52:24.504"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.502" endtime="20240212 18:52:24.504"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240212 18:52:24.505" endtime="20240212 18:52:31.285"/>
+</kw>
+<status status="PASS" starttime="20240212 18:52:24.502" endtime="20240212 18:52:31.286"/>
+</kw>
+<tag>automation</tag>
+<tag>CN</tag>
+<tag>CreditCard</tag>
+<tag>EN</tag>
+<tag>EU</tag>
+<tag>FR</tag>
+<tag>Generic</tag>
+<tag>Guest_User</tag>
+<tag>Positive_Scenario</tag>
+<tag>prod</tag>
+<status status="PASS" starttime="20240212 18:51:16.248" endtime="20240212 18:52:31.286"/>
+</test>
+<status status="PASS" starttime="20240212 18:51:15.517" endtime="20240212 18:52:31.287"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">automation</stat>
+<stat pass="1" fail="0" skip="0">CN</stat>
+<stat pass="1" fail="0" skip="0">CreditCard</stat>
+<stat pass="1" fail="0" skip="0">EN</stat>
+<stat pass="1" fail="0" skip="0">EU</stat>
+<stat pass="1" fail="0" skip="0">FR</stat>
+<stat pass="1" fail="0" skip="0">Generic</stat>
+<stat pass="1" fail="0" skip="0">Guest_User</stat>
+<stat pass="1" fail="0" skip="0">Positive_Scenario</stat>
+<stat pass="1" fail="0" skip="0">prod</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Guest user checkout">Guest user checkout</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240212 18:52:24.502" level="WARN">Executing keyword 'Should Be Equal As Strings' failed:
+Variable '${item_price_cart}' not found.</msg>
+</errors>
+</robot>
